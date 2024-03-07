@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投资页面</title>
+    <style>
+        /* CSS styles */
+        /* Center the form */
+        body {
+            background-image: url('static/images/erji.png'); /* Specify the path to your background image */
+            background-repeat: no-repeat; /* Prevent the background image from repeating */
+            background-size: cover; /* Cover the entire background with the image */
+            background-position: center; /* Center the background image */
+            color: #cfad7a;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Style the form */
+        form {
+            width: 400px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        /* Adjust the width of the select box */
+        select#loan_term {
+            width: 100%; /* Adjust as needed */
+            padding-right: 20px; /* Add space for the dropdown arrow */
+            -webkit-appearance: none; /* Remove default arrow */
+            -moz-appearance: none;
+            appearance: none;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23000000" width="18px" height="18px"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center/12px auto; /* Add custom dropdown arrow */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form method="POST">
+            <h1>投资页面</h1>
+            <label for="inves_money">投资金额：</label>
+            <input type="text" id="inves_money" name="inves_money" value="{{ product.invesMoney }}">
+            <button type="submit">提交</button>
+        </form>
+    </div>
+</body>
+</html>

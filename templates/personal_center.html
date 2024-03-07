@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Center</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css" />
+
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        table {
+            margin: 0 auto; /* Center the table */
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Personal Center</h1>
+        <div>
+            <table>
+                <tr>
+                    <th>项目</th>
+                    <th>信息</th>
+                </tr>
+                <tr>
+                    <td><strong>用户 :</strong></td>
+                    <td>{% if user_info.username is not none %} {{ user_info[0] }} {% else %} 未填写 {% endif %}</td>
+                </tr>
+                <tr>
+                    <td><strong>真实姓名:</strong></td>
+                    <td>{% if user_info.realname is not none%} {{ user_info[1] }} {% else %} 未填写 {% endif %}</td>
+                </tr>
+                <tr>
+                    <td><strong>手机号:</strong></td>
+                    <td>{% if user_info.phone is not none%} {{ user_info[4] }} {% else %} 未填写 {% endif %}</td>
+                </tr>
+                <tr>
+                    <td><strong>邮箱:</strong></td>
+                    <td>{% if user_info.email is not none%} {{ user_info[5] }} {% else %} 未填写 {% endif %}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

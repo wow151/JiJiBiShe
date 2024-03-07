@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大学生理财系统</title>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css"/>
+
+    <style>
+        /* 添加的样式 */
+        body {
+            background-image: url('static/images/shouye.png'); /* Specify the path to your background image */
+            background-repeat: no-repeat; /* Prevent the background image from repeating */
+            background-size: cover; /* Cover the entire background with the image */
+            background-position: center top -200px; /* Center the background image horizontally and position it at the bottom vertically */
+            color: #cfad7a;
+        }
+
+
+        .header {
+            background-color: transparent; /* Remove background color */
+            color: #cfad7a;
+            text-align: left; /* Center-align the text */
+            margin-top: 40px;
+            margin-bottom: 20px; /* Add margin to separate from other content */
+            margin-left: 50px;
+        }
+        .header h1 {
+            font-size: 50px; /* Increase the font size to 36px */
+        }
+
+        .header .left,
+        .header .right,
+        .header .right_right a {
+            color: #cfad7a;
+        }
+
+        .leftside {
+            background-color: transparent; /* Remove background color */
+        }
+
+        .leftside ul li a {
+            color: #cfad7a;
+        }
+
+        .container-fluid {
+            background-color: transparent; /* Remove background color */
+            color: #cfad7a;
+        }
+
+        .sub-header {
+            color: #cfad7a;
+        }
+
+        .content-container {
+            padding: 20px;
+            background-color: transparent; /* Remove background color */
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>大学生理财系统</h1>
+        <span class="right">{{ user_info }}</span>
+        <span class="right_right"><a href="/">退出登录</a></span>
+    </div>
+    <div class="leftside">
+        <ul>
+            <li><a href="/home">系统首页</a></li>
+            <li><a href="/petty_cash">零钱理财</a></li>
+            <li><a href="/apply_loan">安全网贷</a></li>
+            <li><a href="/funds_records">资金记录</a></li>
+            <li class="first"><a href="/personal_center">个人中心</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

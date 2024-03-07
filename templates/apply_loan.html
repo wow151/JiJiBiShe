@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安全网贷申请</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css" />
+    <style>
+        /* Center the form */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Style the form */
+        form {
+            width: 400px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        /* Adjust the width of the select box */
+        select#loan_term {
+            width: 100%; /* Adjust as needed */
+            padding-right: 20px; /* Add space for the dropdown arrow */
+            -webkit-appearance: none; /* Remove default arrow */
+            -moz-appearance: none;
+            appearance: none;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23000000" width="18px" height="18px"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center/12px auto; /* Add custom dropdown arrow */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form method="POST" action="/apply_loan" onsubmit="showSuccessAlert()">
+            <h1>安全网贷申请</h1>
+            <label for="loan_amount">借贷金额：</label>
+            <input type="text" id="loan_amount" name="loan_amount" required><br>
+
+            <label for="loan_term">借贷期限：</label>
+            <select id="loan_term" name="loan_term" required>
+                {% for term in loan_terms %}
+                <option value="{{ term }}">{{ term }}</option>
+                {% endfor %}
+            </select><br>
+
+            <!-- Display the latest loan interest rate -->
+            <label for="annual_interest_rate">年贷款利率：</label>
+            <input type="text" id="annual_interest_rate" name="annual_interest_rate" value="{{ annual_interest_rate }}" readonly><br>
+
+            <input type="submit" value="申请">
+        </form>
+    </div>
+
+    <script>
+        function showSuccessAlert() {
+            alert("申请成功！");
+        }
+    </script>
+</body>
+</html>

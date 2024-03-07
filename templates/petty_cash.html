@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>零钱理财</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css" />
+
+    <style>
+        /* 添加的样式 */
+        .content-container {
+            padding: 20px;
+        }
+
+        .invest-button {
+            background-color: #3f3f3f;
+            color: #CFAD7A;
+            border: none;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .page-info {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .add-record-button {
+            background-color: #3f3f3f;
+            color: #CFAD7A;
+            border: none;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1 class="sub-header">零钱理财推荐</h1>
+        <div class="content-container">
+
+            <!-- 增加记录按钮 -->
+            <a href="/add_record" class="add-record-button">增加记录</a>
+            <!-- 在这里放置您的表格 -->
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>产品名称</th>
+                        <th>日收益率</th>
+                        <th>每万元收益</th>
+                        <th>我的投资金额</th>
+                        <th>相关操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{ product.id }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.daily_interest }}</td>
+                        <td>{{ product.daily_income_per_10k }}</td>
+                        <td>{{ product.invesMoney}}</td>
+                        <td><a href="/investment/{{ product.id }}" class="invest-button">投资</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <!-- 分页控件等 -->
+            <div class="page-buttons">
+                <a href="/home" class="btn btn-primary">返回主页</a>
+                <button class="btn btn-primary">下一页</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

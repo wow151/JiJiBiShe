@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - University Finance System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .register-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .register-container h2 {
+            text-align: center;
+        }
+        .register-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .register-form input {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .register-form button {
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .error-message {
+            text-align: center;
+            color: red;
+            margin-bottom: 10px;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function showSuccessAlert() {
+            alert("Registration successful! Please login.");
+            window.location.href = "/login";
+        }
+        function showExistingUserAlert() {
+            alert("Username already exists. Please choose a different username.");
+        }
+    </script>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Register for University Finance System</h2>
+        <form class="register-form" action="/register" method="post" onsubmit="showSuccessAlert()">
+            {% if error %}
+            <div class="error-message">{{ error }}</div>
+            {% endif %}
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+        <div class="login-link">
+            <a href="/login">Already have an account? Login here.</a>
+        </div>
+    </div>
+</body>
+</html>
